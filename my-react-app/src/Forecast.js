@@ -67,7 +67,7 @@ const uniqueDays = new Set(); // Store unique day names
 dailyForecasts.forEach((targetData) =>{
 
         const forecastCard = document.createElement("div");
-        forecastCard.classList.add("ForeCastCard", "bg-purple-100", "rounded-lg", "m-1");
+        forecastCard.classList.add("ForeCastCard", "rounded-lg", "m-1", "rounded-4xl", "text-white", "text-center", "mx-auto");
 
         //date if-statement
         function getDayOfWeek(unixTimestamp){
@@ -102,6 +102,7 @@ dailyForecasts.forEach((targetData) =>{
 
 
         //desciption if-statement
+       /*
         const newforecastDesc = document.createElement("p"); 
         if (targetData.weather && targetData.weather[0].description !== undefined) {
             newforecastDesc.textContent = `${targetData.weather[0].description}`
@@ -110,7 +111,8 @@ dailyForecasts.forEach((targetData) =>{
 
         }
         forecastCard.appendChild(newforecastDesc)
-
+*/
+       
            //icon if-statement
            const newforecastIcon = document.createElement("div"); 
            if (targetData.weather && targetData.weather[0].icon !== undefined) {

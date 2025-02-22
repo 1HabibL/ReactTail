@@ -6,11 +6,11 @@ function HeroSection() {
 
   return (
     <>
-    <div className='mx-auto flex flex-col justify-center items-center'>
-       <div id="weatherCity">Toronto</div>
-       <div id="weatherIcon"></div>
-       <div id="weatherTemperature"></div>
-       <div id="weatherCondition"></div>
+    <div className='mx-auto flex flex-col justify-center items-center my-[10px]'>
+       <div className="text-xl text-white" id="weatherCity">Toronto</div>
+       <div className="" id="weatherIcon"></div>
+       <div className="text-white text-6xl" id="weatherTemperature"></div>
+       <div className="text-white text-xl" id="weatherCondition"></div>
       </div>
     </>
   )

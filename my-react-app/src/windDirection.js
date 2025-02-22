@@ -1,7 +1,7 @@
 const apiKey2 = "e8bbf07a65817437a530899c1697f0be";
 
 // Function to get city coordinates
-async function getCoordinates(city) {
+export async function getCoordinates(city) {
     try {
         const response = await fetch(
             `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey2}`
@@ -25,7 +25,7 @@ async function getCoordinates(city) {
 
 
 // Function to fetch 7-day forecast
-async function getWeather(city) {
+export async function getWeather(city) {
     const coordinates = await getCoordinates(city);
     if (!coordinates) return;
 
@@ -49,7 +49,7 @@ try {
 }
 }
 
-function displaySection3(windData) {
+export function displaySection3(windData) {
     const windDirection = document.getElementById("windDirection");
     const percipitation = document.getElementById("percipitation")
     const humidity = document.getElementById("humidity")
@@ -59,12 +59,12 @@ function displaySection3(windData) {
     const windDirec = windData.list[0].wind.speed;
     const percip = windData.list[0].rain ? windData.list[0].rain["3h"] : 0;
     const  humid = windData.list[0].main.humidity;
-    const  sunr = new Date(windData.city.sunrise * 1000).toLocaleTimeString();
-    const  suns = new Date(windData.city.sunset * 1000).toLocaleTimeString();
+    const  sunr = new Date(windData.city.sunrise * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit'});
+    const  suns = new Date(windData.city.sunset * 1000).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit'});
 
     windDirection.innerHTML = `Wind Speed: ${windDirec}m/s`;
     percipitation.innerHTML = `Percipitation: ${percip}`;
-    humidity.innerHTML = `${humid}%`;
+    humidity.innerHTML = `Humidity: ${humid}%`;
     sunrise.innerHTML = `${sunr}`;
     sunset.innerHTML = `${suns}`;
 }
