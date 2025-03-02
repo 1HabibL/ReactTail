@@ -33,6 +33,7 @@ export async function fetchWeather(city) {
         const iconCode = data.weather[0].icon // Icon code
 
         // Update HTML
+        weatherCity.innerHTML = data.name;
         weatherTemperature.innerHTML = `${temp}C`;
         weatherCondition.innerHTML = `${condition}`;
         weatherIcon.innerHTML = `<img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="${condition}">`;

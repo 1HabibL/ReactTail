@@ -21,7 +21,7 @@ export async function getCoordinates(city){
 }
 
 // Function to fetch 7-day forecast
-export async function getWeather(city) {
+export async function getWeather2(city) {
     const coordinates = await getCoordinates(city);
     if (!coordinates) return;
 
@@ -49,6 +49,7 @@ try {
 //function to display weather into the div
 export function displayForeCast2(fiveData) {
     const FinalDayData = document.getElementById("FinalDayData");
+    FinalDayData.innerHTML = ""
 
     const dailyForecasts = [];
     const seenDates = new Set();
@@ -133,4 +134,4 @@ dailyForecasts.forEach((targetData) =>{
 
 
 
-getWeather("Toronto")
+getWeather2("Toronto")
